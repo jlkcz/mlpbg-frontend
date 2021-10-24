@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+			<meta charset="utf-8">
+		<style>
+		.grid-item {
+			width: 15em;
+			height: 15em;
+			border: 2px solid black;
+			margin-bottom: 20px;
+			padding: 1em;
+		}
+		</style>
+  </head>
+  <body>
+		<form id="filterform">
+		Minimální počet hráčů: <input type="number" name="min_players"> <br>
+		Maximální počet hráčů: <input type="number" name="max_players"> <br>
+		Věk nejmladšího hráče: <input type="number" name="min_age"> <br>
+    Má video: <input type="checkbox" name="video"> <br>
+    Má video v češtině: <input type="checkbox" name="video_czech"> <br>
+		Jméno: <input type="text" name="name"> <br>
+		Složitější než: <select id="min_weight" name="min_weight"></select><br>
+		Jednodušší než: <select id="max_weight" name="max_weight"></select><br>
+		Štítky: <select id="tags" name="tags[]" multiple="multiple"></select><br>
+		Délka hry: <select id="length" name="length[]" multiple="multiple"></select><br>
+		Složitost: <select id="weight" name="weight[]" multiple="multiple"></select><br>
+		Doporučeno v: <select id="recommended" name="recommended[]" multiple="multiple"></select><br>
+		Kategorie: <select id="categories" name="categories[]" multiple="multiple"></select><br>
+		<input type="submit" value="Spustit" action="#jsonly">
+		</form>
+
+		<button id="resetbtn">Reset</button><br><br><br>
+		<button class="sort" data-sort-by="name">name</button>
+		<button class="sort" data-sort-by="weight">weight</button>
+		<button class="sort" data-sort-by="year">year</button>
+		<button class="sort" data-sort-by="max_players">max_players</button>
+		<button class="sort" data-sort-by="original-order">original-order</button>
+		<div id="grid">
+		</div>
+  	<div id="emsizer"></div>
+		<script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.js"></script>
+		<script src="games.json"></script>
+		<script src="translations.json"></script>
+		<script src="script.js"></script>
+		<link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+		<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+  </body>
+</html>
+
