@@ -138,7 +138,15 @@ function fltHasCzechVideo(data, form) {
     return new_data
 }
 
-const filters = [fltMinPlayers, fltMaxPlayers, fltMinAge, fltPlayingTime, fltWeight, fltMinWeight, fltMaxWeight, fltHasVideo, fltHasCzechVideo, fltRecommended, fltName, fltTags, fltCategories]
+function fltAbsenceLending(data, form) {
+    if (!form.absence_lending) {
+        return data
+    }
+    new_data = data.filter((game) => game.no_absence_lending === false)
+    return new_data
+}
+
+const filters = [fltMinPlayers, fltMaxPlayers, fltMinAge, fltPlayingTime, fltWeight, fltMinWeight, fltMaxWeight, fltHasVideo, fltHasCzechVideo, fltAbsenceLending, fltRecommended, fltName, fltTags, fltCategories]
 
 // global-usage:
 function applyFilters(data, form) {
