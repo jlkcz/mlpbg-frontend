@@ -52,7 +52,7 @@ function fltPlayingTime(data, form){
 		'medium': ((game) => game.playing_time > 30 && game.playing_time <= 60),
 		'long': ((game) => game.playing_time > 60 && game.playing_time <= 120),
 		'extralong': ((game) => game.playing_time > 120),
-	}	
+	}
 	new_data = data.filter((game) => form.length.some(val => lengths[val](game)))
 	return new_data
 }
@@ -65,7 +65,7 @@ function fltWeight(data, form){
 		'medium': ((game) => game.weight > 1.666 && game.weight <= 2.2),
 		'complicated': ((game) => game.weight > 2.2 && game.weight <= 2.6),
 		'gamer': ((game) => game.weight > 2.6),
-	}	
+	}
 	new_data = data.filter((game) => form.weight.some(val => weights[val](game)))
 	return new_data
 }
@@ -125,7 +125,7 @@ function fltHasVideo(data, form){
 function has_czech_video(game){
 	if (game.videos.length === 0) { return false; }
   if (game.videos.some(video => video.lang === 'cs')) {
-		return true;  
+		return true;
 	}
 	return false;
 }
@@ -146,7 +146,7 @@ var active_item_ids = [];
 
 
 //activate this to engage filter
-function run_filter(e){
+function handleFormSubmit(e){
 	if (!nou(e)){ //if no event supplied, no prevention needed, right?
 		e.preventDefault()
 	}
@@ -178,13 +178,13 @@ function run_filter(e){
 }
 
 //resets stuff
-function reset_filter(e){
+function handleFormReset(e){
 	e.preventDefault();
 	console.log('called reset');
 	let form = document.getElementById('filterform')
 	form.reset()
 	selects.forEach(select => select.clear(true))
-	run_filter();
+	handleFormSubmit();
 }
 
 //helper function for isotope filtering
@@ -215,12 +215,12 @@ function init_tomselect(selector, options, maxItems){
 			clear_button: { title: 'Vymazat' },
 			input_autogrow: true
 		},
-		options: options 
+		options: options
 	});
 	return selects.push(select)
 }
 /*
- * Actual initialization 
+ * Actual initialization
 */
 var isoSortData = {
 			weight: (elem) => get_data_by_id(parseInt(elem.dataset.id)).weight,
@@ -232,11 +232,11 @@ var isoSortData = {
 window.addEventListener('load', (event) => {
   //filtrovací event
 	var form = document.getElementById("filterform");
-	form.addEventListener('submit', run_filter);
+	form.addEventListener('submit', handleFormSubmit);
 
 	//resetovaci event
 	let resetbutton = document.getElementById("resetbtn");
-	resetbutton.addEventListener('click', reset_filter);
+	resetbutton.addEventListener('click', handleFormReset);
 
 	//fill the grid with JSON
 	data.forEach((game) => grid.insertAdjacentHTML('beforeend',`
@@ -247,11 +247,11 @@ window.addEventListener('load', (event) => {
 		<p><strong>min_age</strong> ${game.min_age}</p>
 		</div>`))
 
-	sort_buttons = Array.from(document.getElementsByClassName('sort'));
+	var sort_buttons = Array.from(document.getElementsByClassName('sort'));
 	sort_buttons.forEach(elem => {
 		elem.addEventListener('click', iso_sort);
 	});
-	
+
 	//initialize Isotope
 	var elem = document.getElementById('grid');
 	isotope = new Isotope( elem, {
@@ -284,7 +284,7 @@ window.addEventListener('load', (event) => {
 	]
 	init_tomselect('#length',length_options);
 
-	weight_options = [
+	var weight_options = [
 		{id:'verysimple', title:'velmi jednoduchá'},
 		{id:'simple', title:'jednoduchá'},
 		{id:'medium', title:'středně složitá'},
@@ -293,7 +293,7 @@ window.addEventListener('load', (event) => {
 	]
 	init_tomselect('#weight',weight_options);
 
-	recommended_options = [
+	var recommended_options = [
 		{id:1, title:'1 hráči'},
 		{id:2, title:'2 hráčích'},
 		{id:3, title:'3 hráčích'},
@@ -309,7 +309,7 @@ window.addEventListener('load', (event) => {
 	]
 	init_tomselect('#recommended',recommended_options);
 
-	minmax_weight_options = data.map(game => {return {id: game.weight, title: game.name}})
+	var minmax_weight_options = data.map(game => {return {id: game.weight, title: game.name}})
 	init_tomselect('#min_weight',minmax_weight_options, 1);
 	init_tomselect('#max_weight',minmax_weight_options, 1);
 });
