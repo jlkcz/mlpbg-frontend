@@ -68,7 +68,7 @@ function handleSortButtonClick(e) {
 }
 
 function get_data_by_id(id) {
-    return global_data.find(game => game.id === id)
+    return {...global_data.find(game => game.id === id)}
 }
 
 /*
@@ -84,7 +84,7 @@ var isoSortData = {
 function fillGridWithData() {
     var grid = document.getElementById("grid");
     global_data.forEach((game) => grid.insertAdjacentHTML('beforeend', `
-		<div class="grid-item" data-id="${game.id}">
+		<div class="grid-item" data-id="${game.id}" onclick="showLightbox(this);">
 		<h4>${game.name}</h4>
 		<p><strong>players</strong> ${game.min_players}-${game.max_players}</p>
 		<p><strong>weight</strong> ${game.weight}</p>

@@ -29,7 +29,7 @@ global_data = [
     ], 
     "recommendations_str": "2 - 4", 
     "tags": [
-      1
+      "test"
     ], 
     "videos": [], 
     "weight": 1.6585, 
@@ -66,7 +66,7 @@ global_data = [
     ], 
     "recommendations_str": "2 - 4", 
     "tags": [
-      1
+      "test"
     ], 
     "videos": [], 
     "weight": 2.094, 
@@ -107,7 +107,7 @@ global_data = [
     ], 
     "recommendations_str": "2 - V\u00edce ne\u017e 8", 
     "tags": [
-      2
+      "test2"
     ], 
     "videos": [], 
     "weight": 1.0333, 
@@ -149,7 +149,7 @@ global_data = [
     ], 
     "recommendations_str": "3 - 6", 
     "tags": [
-      2
+      "test2"
     ], 
     "videos": [], 
     "weight": 3.2716, 
@@ -185,7 +185,7 @@ global_data = [
     ], 
     "recommendations_str": "3 - 6", 
     "tags": [
-      2
+      "test2"
     ], 
     "videos": [], 
     "weight": 1.3532, 
@@ -215,8 +215,8 @@ global_data = [
     "recommendations": [], 
     "recommendations_str": "", 
     "tags": [
-      1, 
-      2
+      "test", 
+      "test2"
     ], 
     "videos": [], 
     "weight": 1.8, 
@@ -252,8 +252,8 @@ global_data = [
     ], 
     "recommendations_str": "2 - 4", 
     "tags": [
-      1, 
-      2
+      "test", 
+      "test2"
     ], 
     "videos": [], 
     "weight": 1.125, 
@@ -288,8 +288,8 @@ global_data = [
     ], 
     "recommendations_str": "2", 
     "tags": [
-      1, 
-      2
+      "test", 
+      "test2"
     ], 
     "videos": [], 
     "weight": 1.986, 
@@ -335,8 +335,8 @@ global_data = [
     ], 
     "recommendations_str": "2", 
     "tags": [
-      1, 
-      2
+      "test", 
+      "test2"
     ], 
     "videos": [], 
     "weight": 2.2719, 
