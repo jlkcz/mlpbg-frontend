@@ -30,6 +30,10 @@ var recommended_options = [
 ]
 
 function initSelectbox(selector, options, maxItems) {
+    if (document.querySelector(selector) == null){
+        return false
+    }
+
     var select = new TomSelect(selector, {
         maxItems: maxItems,
         valueField: 'id',
