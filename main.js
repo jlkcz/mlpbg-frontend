@@ -35,7 +35,6 @@ function handleFormSubmit(e) {
             }
         }
     }
-    console.log(form)
 
     //performs actual filtering
     var result = applyFilters(global_data, form);
@@ -55,7 +54,6 @@ function handleFormSubmit(e) {
 //resets stuff
 function handleFormReset(e) {
     e.preventDefault();
-    console.log('called reset');
     let form = document.getElementById('filterform')
     form.reset()
     global_selects.forEach(select => select.clear(true))
