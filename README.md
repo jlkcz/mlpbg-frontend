@@ -65,6 +65,9 @@ Není. Případný vzhled konzultovat s Jaroslavem Rajlem, aplikace je ale proza
 U každého obrázku by se měl zobrazovat obrázek hry v dostatečné kvalitě. Knihovna disponuje obrázky pro potřeby katalogu, je možné využít dat z katalogu pro načítání obrázků? 
 Pokud ano, jak generovat adresu URL obrázku do dat o hrách. Pokud ne, je backend připraven pro nahrávání fotek v něm. Bylo by ale žádoucí, aby microsite měla kopii těchto fotek u sebe, kvůli rychlejšímu načítání. V takovém případě je nutné vyřešit pravidelný transfer dat.
 
+## Aktualizace stupnic - složitost, délka
+Aplikace používá lidsky srozumitelné stupnice složitosti (jednoduchá/složitá) a délky her (krátká/dlouhá). Nynější hodnoty jsou nahodile nastavené vývojářem, bylo by žádoucí je upravit. Dodá Jaroslav Rajl
+
 # Použité knihovny
 * [basicLightbox](https://github.com/electerious/basicLightbox) - MIT
 * [tom-select](https://github.com/orchidjs/tom-select) - Apache 2.0
