@@ -54,25 +54,31 @@ function assembleLightbox(id){
     var game_data = get_data_by_id(id)
 		var data = translateData(game_data)
     x = `<div class="modal">
-            <h1>${data.name}</h1>
-						<table>
-							<tr><td>nejlepší v počtu hráčů</td><td>${data.best_players}</td>
-							<tr><td>Kategorie</td><td>${data.categories}</td>
-							<tr><td>Počet hráčů do</td><td>${data.max_players}</td>
-							<tr><td>Mechaniky</td><td>${data.mechanics}</td>
-							<tr><td>Věk od (věk nejmladšího hráče</td><td>${data.min_age}</td>
-							<tr><td>Počet hráčů od</td><td>${data.min_players}</td>
-							<tr><td>Popis</td><td>${data.mkp_description}</td>
-							<tr><td>Adresa obrázku</td><td>${data.mkp_image}</td>
-							<tr><td>Adresa v katalogu</td><td>${data.mkp_url}</td>
-							<tr><td>Pouze prezenčně</td><td>${data.no_absence_lending}</td>
-							<tr><td>Délka hry</td><td>${data.playing_time}</td>
-							<tr><td>Doporučeno pro počet hráčů</td><td>${data.recommendations_str}</td>
-							<tr><td>Štítky</td><td>${data.tags}</td>
-							<tr><td>Videa</td><td>${data.videos}</td>
-							<tr><td>Složitost</td><td>${data.weight}</td>
-							<tr><td>Rok vydání</td><td>${data.year}</td>
-						</table>
+						<div class="content" style="display: block;height: auto;max-width: inherit;max-height: none;">
+						<h1>${data.name}</h1>
+							<table>
+								<tr><td>nejlepší v počtu hráčů</td><td>${data.best_players}</td>
+								<tr><td>Kategorie</td><td>${data.categories}</td>
+								<tr><td>Počet hráčů do</td><td>${data.max_players}</td>
+								<tr><td>Mechaniky</td><td>${data.mechanics}</td>
+								<tr><td>Věk od (věk nejmladšího hráče</td><td>${data.min_age}</td>
+								<tr><td>Počet hráčů od</td><td>${data.min_players}</td>
+								<tr><td>Popis</td><td>${data.mkp_description}</td>
+								<tr><td>Adresa obrázku</td><td>${data.mkp_image}</td>
+								<tr><td>Adresa v katalogu</td><td>${data.mkp_url}</td>
+								<tr><td>Pouze prezenčně</td><td>${data.no_absence_lending}</td>
+								<tr><td>Délka hry</td><td>${data.playing_time}</td>
+								<tr><td>Doporučeno pro počet hráčů</td><td>${data.recommendations_str}</td>
+								<tr><td>Štítky</td><td>${data.tags}</td>
+								<tr><td>Videa</td><td>${data.videos}</td>
+								<tr><td>Složitost</td><td>${data.weight}</td>
+								<tr><td>Rok vydání</td><td>${data.year}</td>
+							</table>
+						</div>
+						<div class="nav-buttons" style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: 1001;">
+							<div style="width:20%;height:100%;float:right;background: url(next.png) right 48% no-repeat;;display:block;" onclick="moveToNext();"></div>
+							<div style="width:20%;height:100%;float:left;background: url(prev.png) left 48% no-repeat;;display:block;" onclick="moveToPrevious();"></div>
+						</div>
         </div>`
     return x
 }
@@ -91,6 +97,20 @@ function showLightbox(e){
     global_lightbox.show()
 }
 
+function moveToNext(){
+		if(global_lightbox === null || !global_lightbox.visible()) {return null;}
+		new_e = getNextSibling(global_shown, displayedGame);
+		if(new_e === undefined){ return null }
+		showLightbox(new_e);
+}
+
+function moveToPrevious(){
+		if(global_lightbox === null || !global_lightbox.visible()) {return null;}
+		new_e = getPreviousSibling(global_shown, displayedGame);
+		if(new_e === undefined){ return null }
+		showLightbox(new_e);
+}
+
 function handleKeys(key){
 	//lightbox not shown, do nothing
 	if(global_lightbox === null || !global_lightbox.visible()) {return null;}
@@ -99,16 +119,11 @@ function handleKeys(key){
 	//if the key is not supported, do nothing
 	if(!["ArrowLeft", "ArrowRight"].includes(key)){ return null }
 	if(key == "ArrowLeft"){
-		new_e = getPreviousSibling(global_shown, displayedGame)
+		return moveToNext();
 	}
 	if(key == "ArrowRight"){
-		new_e = getNextSibling(global_shown, displayedGame)
+		return moveToPrevious();
 	}
-	console.log(new_e)
-	if(new_e === undefined){ return null }
-	showLightbox(new_e);
-	
-
 }
 
 body = document.getElementsByTagName('body')[0]
