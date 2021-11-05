@@ -95,7 +95,7 @@ function attachEvents() {
     form.addEventListener('submit', handleFormSubmit);
 
     let resetbutton = document.getElementById("resetbtn");
-    resetbutton.addEventListener('click', handleFormReset);
+    if (resetbutton !== null) resetbutton.addEventListener('click', handleFormReset);
 
     var sort_buttons = Array.from(document.getElementsByClassName('sort'));
     sort_buttons.forEach(elem => {
