@@ -18,6 +18,8 @@ function getNextSibling (elem, callback) {
 		index++;
 		sibling = sibling.nextElementSibling;
 	}
+	//when there is none, lets start with a first one again (so we cycle)
+	return document.querySelectorAll('.grid-item:not([style*="display:none"]):not([style*="display: none"])')[0]
 }
 
 /*!
@@ -37,6 +39,9 @@ function getPreviousSibling (elem, callback) {
 		index++;
 		sibling = sibling.previousElementSibling;
 	}
+	//when there is none, lets start with a last one again (so we cycle)
+	let nodes = document.querySelectorAll('.grid-item:not([style*="display:none"]):not([style*="display: none"])')
+	return nodes[nodes.length -1]
 }
 
 function displayedGame(sibling){
