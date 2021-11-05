@@ -53,7 +53,7 @@ Aplikace je cíleně nenastylovaná. Jediné prozatím používané CSS je CSS n
 Lze vytvořit různé verze formuláře, stačí pouze odebírat kontrolní prvky (inputy, checkboxy). Je tak možné mít verzi na jednoduché filtrování (např. pouze štítky). Odebrat prvky stačí v HTML, aplikace si s tím sama poradí.
 
 ### Řadící tlačítka
-Řadící tlačítka lze odebrat/schovat bez zásahu do kódu, i jednotlivě. Přidání řazení podle jiných parametrů vyžaduje zásah do kódu.
+Řadící tlačítka lze odebrat/schovat bez zásahu do kódu, i jednotlivě. Přidání řazení podle jiných parametrů vyžaduje zásah do kódu. Stejně tak reset tlačítko, pokud není žádoucí pro UX
 
 
 ## Očekávaný vizuál
