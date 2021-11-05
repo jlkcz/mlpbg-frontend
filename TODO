@@ -1,5 +1,2 @@
-* Implementace swipování - možnost přepínat modály na touchscreen
-* Nekonečné přepínání modálů (při dojetí na konec začít opět na začátku)
-* V modálu zobrazovat šipky (aby šlo procházet modály též myší)
 * Upravit stupnice (složitost, délka)
 * Vyřešit URL pro obrázky
