@@ -59,7 +59,7 @@ function assembleLightbox(id){
     var game_data = get_data_by_id(id)
 		var data = translateData(game_data)
     x = `<div class="modal">
-						<div class="content" style="display: block;height: auto;max-width: inherit;max-height: none;">
+						<div class="content" style="display: block;height: auto;max-width: inherit;max-height: none;padding: 30px 60px 30px 75px;">
 						<h1>${data.name}</h1>
 							<table>
 								<tr><td>nejlepší v počtu hráčů</td><td>${data.best_players}</td>
@@ -80,10 +80,8 @@ function assembleLightbox(id){
 								<tr><td>Rok vydání</td><td>${data.year}</td>
 							</table>
 						</div>
-						<div class="nav-buttons" style="position: absolute;top: 0;left: 0;height: 100%;width: 100%;z-index: 1001;">
-							<div style="width:20%;height:100%;float:right;background: url(next.png) right 48% no-repeat;;display:block;" onclick="moveToNext();"></div>
-							<div style="width:20%;height:100%;float:left;background: url(prev.png) left 48% no-repeat;;display:block;" onclick="moveToPrevious();"></div>
-						</div>
+							<div style="width:60px;height:100%;position: absolute; right: 0; top: 0; z-index:10001; background: url(img/next.png) right 48% no-repeat;;display:block;" onclick="moveToNext();"></div>
+							<div style="width:60px;height:100%;position: absolute; left: 0; top: 0; z-index:10001; background: url(img/prev.png) right 48% no-repeat;;display:block;" onclick="moveToNext();"></div>
         </div>`
     return x
 }
