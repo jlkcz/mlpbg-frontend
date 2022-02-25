@@ -73,5 +73,6 @@ Aplikace používá lidsky srozumitelné stupnice složitosti (jednoduchá/slož
 * [tom-select](https://github.com/orchidjs/tom-select) - Apache 2.0
 * [Vanilla JS Toolkit](https://vanillajstoolkit.com/) - MIT
 * [Isotope](https://github.com/metafizzy/isotope) - GNU GPLv3
-* (v plánu) [swiped-events](https://github.com/john-doherty/swiped-events) - MIT
 
+# Licence
+Software je nabízen pod licencí [GNU GPLv3](https://www.gnu.org/licenses/gpl-3.0.html), autorem je Jakub Lucký
